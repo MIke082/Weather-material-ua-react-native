@@ -1,13 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
+import 'react-native-gesture-handler';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Weather from './components/weather/Weather';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Geo from './components/geo/Geo';
+
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+      <Stack.Screen name="Geo" component={Geo} />
+        <Stack.Screen name="Weather" component={Weather} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
